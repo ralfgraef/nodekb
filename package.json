@@ -1,0 +1,17 @@
+{
+  "name": "nodekbtraversy",
+  "version": "1.0.0",
+  "description": "Simple konwledgebase app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Ralf Gräf",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.5",
+    "pug": "^2.0.3"
+  }
+}
