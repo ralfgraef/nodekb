@@ -5,5 +5,7 @@ block content
   h5 Written by #{article.author}
   p= article.body
   hr
-  a.btn.btn-outline-primary(href='/article/edit/' + article._id) Edit
-  a.btn.btn-outline-danger.delete-article(href='#', data-id=article._id) Delete
+  a.btn.btn-outline-primary(href='/article/edit/' + article._id, id="edit_btn") Edit 
+    i.far.fa-edit
+  a.btn.btn-outline-danger.delete-article(href='#', data-id=article._id) Delete 
+    i.far.fa-trash-alt
