@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   if (document.querySelector('.alert')){
     console.log('Ist da!')
-    $('.alert').fadeOut(3000);
+    $('.alert').fadeOut(5000);
   }
   $('.delete-article').on('click', function(e){
     $target = $(e.target);

@@ -4,6 +4,15 @@
 nav {
   margin-bottom: 3em;
 }
-.messages {
-  width: 50%;
+#messages {
+  float: right;
+  margin-top: -25px;
+  margin-bottom: -40px;
+}
+#heins {
+  clear: both;
+}
+#messages i.far {
+  margin-left: 20px;
+  margin-top: 5px;
 }
