@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+  if (document.querySelector('.alert')){
+    console.log('Ist da!')
+    $('.alert').fadeOut(3000);
+  }
   $('.delete-article').on('click', function(e){
     $target = $(e.target);
     console.log($target);
