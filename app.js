@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require ('path');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const flash = require('express-flash');
+const session = require('express-session');
+
 
 mongoose.connect('mongodb://localhost/nodekb');
 let db = mongoose.connection;
@@ -27,6 +31,22 @@ app.use(bodyParser.json());
 
 // Set public folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Set middleware express session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+// Set middelware espress messages
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+// Set middleware express-validator
 
 // Bring in models
 let Article = require('./models/article');
@@ -88,6 +108,7 @@ app.post('/articles/add', function(req, res) {
       console.log(err);
       return;
     } else {
+      req.flash('success', 'Article added!');
       res.redirect('/');
     }
   });

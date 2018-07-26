@@ -21,11 +21,13 @@ html
               a.nav-link(href='/articles/add') Add Article
            
     .container
+      != messages('message.pug', locals)
       block content
       br
       hr
       footer
         p &copy; 2018 Ralf Gräf
+
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/js/main.js')
