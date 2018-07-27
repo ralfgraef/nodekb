@@ -12,11 +12,13 @@ nav {
 #heins {
   clear: both;
 }
-#messages i.far {
-  margin-left: 20px;
-  margin-top: 5px;
+#messages i.far, #error_title i.far, #error_body i.far, #error_author i.far {
+  margin-left: 10px;
 }
-
 nav img {
   width: 50px;
 }
+#error_title, #error_author, #error_body {
+  float: right;
+  margin-left: 5px;
+} 

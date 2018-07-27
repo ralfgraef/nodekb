@@ -24,6 +24,10 @@ html
            
     .container
       != messages('message.pug', locals)
+      if errors
+        each error, i in errors
+          div(id=`error_${i}` class="alert alert-danger") #{error.msg}
+            i.far.fa-times-circle
       block content
       br
       hr

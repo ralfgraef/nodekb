@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= article.title
-  h5 Written by #{article.author}
+  h5 Erstellt von #{article.author} am #{article.date}
   p= article.body
   hr
-  a.btn.btn-outline-primary(href='/article/edit/' + article._id, id="edit_btn") Edit 
+  a.btn.btn-outline-primary(href='/articles/edit/' + article._id, id="edit_btn") Edit 
     i.far.fa-edit
   a.btn.btn-outline-danger.delete-article(href='#', data-id=article._id) Delete 
     i.far.fa-trash-alt
