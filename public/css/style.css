@@ -1,6 +1,9 @@
 #edit_btn {
   margin-right: 10px;
 }
+i.far.fa-edit {
+  margin-left: 7px;
+}
 nav {
   margin-bottom: 3em;
 }

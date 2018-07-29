@@ -5,10 +5,12 @@ block content
   form(method='POST', action='/articles/add')
     .form-group
       label Title:
-      input.form-control(name='title', type='text')
+      input.form-control(name='title', type='text') 
     .form-group
-      label Author:
-      input.form-control(name='author', type='text')
+      label Erstellt von:
+      select.form-control(name='author', type='text')
+        option(value='Anne') Anne
+        option(value='Ralf') Ralf
     .form-group
       label Body:
       textarea.form-control(name='body')
