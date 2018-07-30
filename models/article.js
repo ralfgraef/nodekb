@@ -10,8 +10,8 @@ let articleSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  body:{
-    type: String,
+  list_item:{
+    type: Array,
     required: true
   },
   date:{

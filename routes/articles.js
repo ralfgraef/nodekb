@@ -27,15 +27,18 @@ router.post('/add',
 [
   check('title').isLength({min:1}).withMessage('Title required'),
   check('author').isLength({min:1}).withMessage('Author required'),
-  check('body').isLength({min:1}).withMessage('Body required')
+  check('list_item').isLength({min:1}).withMessage('List_item required')
 ],
 
 (req, res, next) => {
-  
+  console.log(req.body);
   let article = new Article({
     title:req.body.title,
     author:req.body.author,
-    body:req.body.body
+    list_item: {
+      name: req.body.list_item,
+      checked: false
+    }
   });
   
   const errors = validationResult(req);
@@ -55,7 +58,10 @@ router.post('/add',
     var result = pad(dateobj.getDate())+"."+pad(dateobj.getMonth()+1)+"."+dateobj.getFullYear();
     article.title = req.body.title;
     article.author = req.body.author;
-    article.body = req.body.body;
+    article.list_item = {
+      name: req.body.list_item,
+      checked: false
+    }
     article.date = result;
     article.save(function(err) {
       if(err) {

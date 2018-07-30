@@ -4,16 +4,19 @@ block content
   .dropdown
     h2(id="hzwei")= article.title
       img(src='/img/' + article.title + '.png' alt='Logo')
-      button.btn.btn-outline-primary.float-right.dropdown-toggle(type='button', data-toggle='dropdown')
-        | Edit
-        i.far.fa-edit
-      .dropdown-menu
-        a.btn.dropdown-item(href='#') Titel ändern
-        br
-        a.btn.dropdown-item.btn-outline-primary(href='#') Liste erweitern
+      a(href="#")
+        i(id='new_item').fas.fa-plus-circle.float-right
+      
+  h6 Erstellt von #{article.author} am #{article.date}
   
-  h5 Erstellt von #{article.author} am #{article.date}
-  p= article.body
+  ul(id="items").list-group
+    each eintrag, i in article.list_item
+      li.list-group-item
+        i(id="checkbox").far.fa-check-square.float-left
+        h5(id="hdrei")= eintrag.name
+        i(id="edit_item").far.fa-edit.float-right
+        
+  
   hr
   a.btn.btn-outline-danger.delete-article(href='#', data-id=article._id) Löschen 
     i.far.fa-trash-alt

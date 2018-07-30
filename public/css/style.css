@@ -25,13 +25,32 @@ nav img {
   float: right;
   margin-left: 5px;
 } 
-li img {
+li img, h2 img {
   width: 80px;
   float: left;
   margin-right: 15px;
 }
-h2 img {
-  width: 70px;
-  float: left;
-  margin-right: 15px;
+#items {
+  clear: both;
+  margin-top: 25px;
+} 
+.dropdown {
+  margin-bottom: 24px;
+}
+#checkbox {
+  margin-top: 10px;
+  font-size: 20px;
+  margin-right: 45px;
+}
+#hdrei {
+  margin-top:7px;
+}
+#edit_item {
+  margin-top: -28px;
+}
+#new_item {
+  color: darkslategray;
+  font-size: 40px;
+  margin-top: 2px;
+  margin-right: 10px;
 }
