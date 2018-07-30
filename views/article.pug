@@ -4,7 +4,7 @@ block content
   .dropdown
     h2(id="hzwei")= article.title
       img(src='/img/' + article.title + '.png' alt='Logo')
-      a(href="#")
+      a(href='#')
         i(id='new_item').fas.fa-plus-circle.float-right
       
   h6 Erstellt von #{article.author} am #{article.date}
@@ -14,7 +14,8 @@ block content
       li.list-group-item
         i(id="checkbox").far.fa-check-square.float-left
         h5(id="hdrei")= eintrag.name
-        i(id="edit_item").far.fa-edit.float-right
+        a(href='/articles/edit/' + article._id)
+          i(id="edit_item").far.fa-edit.float-right
         
   
   hr

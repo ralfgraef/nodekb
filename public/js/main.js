@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
   if (document.querySelector('.alert')){
-    console.log('Ist da!')
     $('.alert').fadeOut(5000);
   }
   $('.delete-article').on('click', function(e){
     if(confirm('Bist Du sicher?')) {
       $target = $(e.target);
-      console.log($target);
+      console.log('$target: ', $target);
       const id = $target.attr('data-id');
       $.ajax({
         type: 'DELETE',

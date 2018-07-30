@@ -9,7 +9,7 @@ let Article = require('../models/article');
 router.get('/edit/:id', function(req, res) {
   Article.findById(req.params.id, function(err, article) {
     res.render('edit_article', {
-      title: 'Edit Article',
+      title: 'Listeneintrag ändern',
       article: article
     });
   });
@@ -78,9 +78,12 @@ router.post('/add',
 // Update Submit POST Route
 router.post('/edit/:id', function(req, res) {
   let article = {};
-  article.title = req.body.title;
-  article.author = req.body.author;
-  article.body = req.body.body;
+  // article.title = req.body.title;
+  // article.author = req.body.author;
+  article.list_item = {
+    name: req.body.list_item,
+    checked: false
+  }
 
   let query = {_id: req.params.id};
 
@@ -89,8 +92,8 @@ router.post('/edit/:id', function(req, res) {
       console.log(err);
       return;
     } else {
-      req.flash('success', 'Article updated!');
-      res.redirect('/');
+      req.flash('success', 'Eintrag aktualisiert!');
+      res.redirect('/articles/' + req.params.id);
     }
   });
 });

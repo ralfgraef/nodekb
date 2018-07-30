@@ -46,7 +46,10 @@ li img, h2 img {
   margin-top:7px;
 }
 #edit_item {
-  margin-top: -28px;
+  margin-top: -35px;
+  color: darkslategray;
+  font-size: 25px;
+  margin-right: -7px;
 }
 #new_item {
   color: darkslategray;
