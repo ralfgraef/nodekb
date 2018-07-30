@@ -6,6 +6,10 @@ block content
   ul.list-group
     each article, i in articles
       li.list-group-item
-        a(href="/articles/" + article._id)= article.title + ", erstellt am " + article.date
-          i.far.fa-edit.float-right      
+        img(src='/img/' + article.title + '.png' alt='Logo')
+        h4
+          a(href="/articles/" + article._id)
+            i.far.fa-edit.float-right 
+        h3= article.title
+        h5= article.date     
       br

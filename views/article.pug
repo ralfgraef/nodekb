@@ -2,7 +2,8 @@ extends layout
 
 block content
   .dropdown
-    h1= article.title
+    h2(id="hzwei")= article.title
+      img(src='/img/' + article.title + '.png' alt='Logo')
       button.btn.btn-outline-primary.float-right.dropdown-toggle(type='button', data-toggle='dropdown')
         | Edit
         i.far.fa-edit
@@ -10,12 +11,9 @@ block content
         a.btn.dropdown-item(href='#') Titel ändern
         br
         a.btn.dropdown-item.btn-outline-primary(href='#') Liste erweitern
-  //- a.btn.btn-outline-primary.float-right(href='/articles/edit/' + article._id, id="edit_btn_title") Edit 
-  //-   i.far.fa-edit
+  
   h5 Erstellt von #{article.author} am #{article.date}
   p= article.body
   hr
-  a.btn.btn-outline-primary(href='/articles/edit/' + article._id, id="edit_btn") Edit 
-    i.far.fa-edit
   a.btn.btn-outline-danger.delete-article(href='#', data-id=article._id) Delete 
     i.far.fa-trash-alt

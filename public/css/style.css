@@ -25,3 +25,13 @@ nav img {
   float: right;
   margin-left: 5px;
 } 
+li img {
+  width: 80px;
+  float: left;
+  margin-right: 15px;
+}
+h2 img {
+  width: 70px;
+  float: left;
+  margin-right: 15px;
+}
