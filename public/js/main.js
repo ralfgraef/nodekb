@@ -5,19 +5,21 @@ $(document).ready(function() {
     $('.alert').fadeOut(5000);
   }
   $('.delete-article').on('click', function(e){
-    $target = $(e.target);
-    console.log($target);
-    const id = $target.attr('data-id');
-    $.ajax({
-      type: 'DELETE',
-      url:'/articles/' + id,
-      success: function(response) {
-        alert('Deleting Article');
-        window.location.href='/'
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    });
+    if(confirm('Bist Du sicher?')) {
+      $target = $(e.target);
+      console.log($target);
+      const id = $target.attr('data-id');
+      $.ajax({
+        type: 'DELETE',
+        url:'/articles/' + id,
+        success: function(response) {
+          window.location.href='/'
+        },
+        error: function(err) {
+          console.log(err);
+        }
+      });
+    }; 
   });
+
 });

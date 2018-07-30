@@ -18,7 +18,7 @@ router.get('/edit/:id', function(req, res) {
 // Add Route
 router.get('/add', function(req, res) {
   res.render('add_article', {
-    title: 'Add Articles'
+    title: 'Liste hinzu'
   });
 });
 
@@ -62,7 +62,7 @@ router.post('/add',
         console.log(err);
         return;
       } else {
-        req.flash('success', 'Article added!');
+        req.flash('success', 'Liste hinzugefügt!');
         res.redirect('/');
       }
     });
