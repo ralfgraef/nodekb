@@ -4,7 +4,7 @@ block content
   .dropdown
     h2(id="hzwei")= article.title
       img(src='/img/' + article.title + '.png' alt='Logo')
-      a(href='#')
+      a(href='/articles/article_item/' + article._id)
         i(id='new_item').fas.fa-plus-circle.float-right
       
   h6 Erstellt von #{article.author} am #{article.date}

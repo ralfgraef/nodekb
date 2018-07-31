@@ -22,6 +22,15 @@ router.get('/add', function(req, res) {
   });
 });
 
+// Add_item Route
+router.get('/article_item/:id', function(req, res) {
+  Article.findById(req.params.id, function(err, article) {
+    res.render('add_new_item', {
+      title: 'Listeneintrag hinzu',
+      article: article
+    });
+  });
+});
 // Add Submit POST Route
 router.post('/add', 
 [
