@@ -12,7 +12,7 @@ block content
   ul(id="items").list-group
     each eintrag, i in article.list_item
       li.list-group-item
-        i(id="checkbox").far.fa-check-square.float-left
+        i(id="checkbox").far.fa-square.float-left
         h5(id="hdrei")= eintrag.name
         a(href='/articles/edit/' + article._id)
           i(id="edit_item").far.fa-edit.float-right

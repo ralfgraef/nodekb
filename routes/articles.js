@@ -40,11 +40,12 @@ router.post('/add',
 ],
 
 (req, res, next) => {
-  console.log(req.body);
+  //console.log(req.body);
   let article = new Article({
     title:req.body.title,
     author:req.body.author,
     list_item: {
+      id: new Date().valueOf(),
       name: req.body.list_item,
       checked: false
     }
@@ -53,8 +54,8 @@ router.post('/add',
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    console.log(errors.mapped());
-    console.log(article);
+    //console.log(errors.mapped());
+    //console.log(article.list_item.id);
       res.render('add_article',
       { 
         title: 'Add Articles',
@@ -68,6 +69,7 @@ router.post('/add',
     article.title = req.body.title;
     article.author = req.body.author;
     article.list_item = {
+      id: new Date().valueOf(),
       name: req.body.list_item,
       checked: false
     }
@@ -89,6 +91,7 @@ router.post('/add_new_item/:id', function(req, res) {
   Article.findById(req.params.id, function(err, article) {
     console.log('Hier bin ich mit list_item: ', req.body.list_item);
     let eintrag = {
+      id: new Date().valueOf(),
       name: req.body.list_item,
       checked: false
     };
