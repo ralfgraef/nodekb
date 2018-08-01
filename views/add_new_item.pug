@@ -2,7 +2,7 @@ extends layout
 
 block content
   h2 #{title}
-  form(method='POST', action='/articles/add_new_item')
+  form(method='POST', action='/articles/add_new_item/' + article._id)
     .form-group
       label List_item:
       input.form-control(name='list_item', type='text')

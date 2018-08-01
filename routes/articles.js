@@ -84,6 +84,37 @@ router.post('/add',
   };
 });
 
+// Add new item POST Route
+router.post('/add_new_item/:id', function(req, res) {
+  Article.findById(req.params.id, function(err, article) {
+    console.log('Hier bin ich mit list_item: ', req.body.list_item);
+    let eintrag = {
+      name: req.body.list_item,
+      checked: false
+    };
+    console.log('Eintrag: ', eintrag); 
+    console.log('article.list_item: ', article.list_item);
+    article.list_item.push(eintrag);
+    console.log('article.list_item nach push: ', article.list_item)
+    
+    let query = {_id: req.params.id};
+
+    Article.update(query, article, function(err) {
+      if(err) {
+        console.log(err);
+        return;
+      } else {
+        req.flash('success', 'Eintrag aktualisiert!');
+        res.redirect('/articles/' + req.params.id);
+      }
+    });
+  });
+});
+
+  
+
+
+
 // Update Submit POST Route
 router.post('/edit/:id', function(req, res) {
   let article = {};
