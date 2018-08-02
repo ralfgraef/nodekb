@@ -3,6 +3,8 @@
 }
 i.far.fa-edit {
   margin-left: 7px;
+  color: darkslategray;
+  margin-top: 25px;
 }
 nav {
   margin-bottom: 3em;
@@ -14,6 +16,9 @@ nav {
 }
 #heins {
   clear: both;
+}
+#hzwei {
+  padding-top: 1px;
 }
 #messages i.far, #error_title i.far, #error_body i.far, #error_author i.far {
   margin-left: 10px;
@@ -41,6 +46,7 @@ li img, h2 img {
   margin-top: 10px;
   font-size: 20px;
   color: darkslategray;
+  cursor: pointer;
 }
 #hdrei {
   margin-top: -1.1em;
@@ -55,6 +61,6 @@ li img, h2 img {
 #new_item {
   color: darkslategray;
   font-size: 40px;
-  margin-top: 45px;
+  margin-top: 5px;
   margin-right: 4px;
 }

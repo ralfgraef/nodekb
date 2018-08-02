@@ -89,6 +89,7 @@ router.post('/add',
 // Add new item POST Route
 router.post('/add_new_item/:id', function(req, res) {
   Article.findById(req.params.id, function(err, article) {
+    console.log('article: ', article);
     console.log('Hier bin ich mit list_item: ', req.body.list_item);
     let eintrag = {
       id: new Date().valueOf(),
@@ -115,10 +116,17 @@ router.post('/add_new_item/:id', function(req, res) {
 });
 
   
-// Update Submit POST Route
-router.get('/edit_check/:id/:aid', function(req, res) {
-  console.log(req.params.id);
-  console.log(req.params.aid);
+//Update Submit POST Route
+router.put('/edit_check/:id/:did', function(req, res) {
+  console.log('id --> ', req.params.id);
+  console.log('did --> ', req.params.did);
+  let query = {_id: req.params.id};
+  Article.findById(query, function(err, article) {
+    let watt = article.list_item.find(x => x.id == req.params.did);
+    console.log('Was wurde gefunden: ', watt.checked);
+    //console.log(article.findIndex(x => x.list_item.id == req.params.did));
+    })
+ 
 });
 
 

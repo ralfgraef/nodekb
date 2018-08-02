@@ -21,12 +21,22 @@ $(document).ready(function() {
     }; 
   });
 
-  // 
-  // $('.checkbox').on('click', function(e) {
-  //   $target = $(e.target);
+  $('.checkbox').on('click', function(e) {
+    $target = $(e.target);
+    const id = $target.attr('data-id');
+    const did = $target.attr('id');
+    $.ajax({
+      type: 'PUT',
+      url:'/articles/edit_check/' + id + '/' + did,
+      success: function(response) {
+        window.location.href='/article/' + id;
+        console.log('Asikopp!!!');
+      },
+      error: function(err) {
+        console.log(err); 
+      }
+    });
 
-  //   alert('ID: ' + $target.attr('id'));
-  //   alert('DATA-ID: ' + $target.attr('data-id'));
-
-  // });
+  });
+  
 });

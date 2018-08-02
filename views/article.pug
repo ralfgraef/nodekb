@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  .dropdown
-    h2(id="hzwei")= article.title
-      img(src='/img/' + article.title + '.png' alt='Logo')
-      a(href='/articles/article_item/' + article._id)
-        i(id='new_item').fas.fa-plus-circle.float-right
+  h2(id='hzwei')
+    img(src='/img/' + article.title + '.png' alt='Logo')
+  a(href='/articles/article_item/' + article._id)
+    i(id='new_item').fas.fa-plus-circle.float-right
       
-  h6 Erstellt von #{article.author} am #{article.date}
+  h4 Erstellt von #{article.author} 
+  h5 am #{article.date}
   
   ul(id="items").list-group
     each eintrag, i in article.list_item
@@ -17,10 +17,9 @@ block content
             i(id=eintrag.id, data-id=article._id).far.fa-square.float-left.checkbox
               h5(id="hdrei")= eintrag.name
         else
-          a.checkbox(href='/articles/edit_check/' + article._id + "/" + eintrag.id)
-            i(id=eintrag.id, data-id=article._id).far.fa-check-square.float-left.checkbox
-              h5(id="hdrei")
-                del= eintrag.name
+          i(id=eintrag.id, data-id=article._id).far.fa-check-square.float-left.checkbox
+            h5(id="hdrei")
+              del= eintrag.name
         a(href='/articles/edit/' + article._id)
           i(id="edit_item").far.fa-edit.float-right
         
