@@ -21,4 +21,12 @@ $(document).ready(function() {
     }; 
   });
 
+  // 
+  // $('.checkbox').on('click', function(e) {
+  //   $target = $(e.target);
+
+  //   alert('ID: ' + $target.attr('id'));
+  //   alert('DATA-ID: ' + $target.attr('data-id'));
+
+  // });
 });

@@ -37,16 +37,17 @@ li img, h2 img {
 .dropdown {
   margin-bottom: 24px;
 }
-#checkbox {
+.checkbox {
   margin-top: 10px;
   font-size: 20px;
-  margin-right: 45px;
+  color: darkslategray;
 }
 #hdrei {
-  margin-top:7px;
+  margin-top: -1.1em;
+  margin-left: 3em;
 }
 #edit_item {
-  margin-top: -30px;
+  margin-top: 8px;
   color: darkslategray;
   font-size: 17px;
   margin-right: -7px;

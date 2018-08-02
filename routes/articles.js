@@ -71,7 +71,7 @@ router.post('/add',
     article.list_item = {
       id: new Date().valueOf(),
       name: req.body.list_item,
-      checked: false
+      checked: true
     }
     article.date = result;
     article.save(function(err) {
@@ -115,7 +115,11 @@ router.post('/add_new_item/:id', function(req, res) {
 });
 
   
-
+// Update Submit POST Route
+router.get('/edit_check/:id/:aid', function(req, res) {
+  console.log(req.params.id);
+  console.log(req.params.aid);
+});
 
 
 // Update Submit POST Route
