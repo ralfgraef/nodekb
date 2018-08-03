@@ -13,9 +13,8 @@ block content
     each eintrag, i in article.list_item
       li.list-group-item
         if !eintrag.checked
-          a.checkbox(href='/articles/edit_check/' + article._id + "/" + eintrag.id)
-            i(id=eintrag.id, data-id=article._id).far.fa-square.float-left.checkbox
-              h5(id="hdrei")= eintrag.name
+          i(id=eintrag.id, data-id=article._id).far.fa-square.float-left.checkbox
+            h5(id="hdrei")= eintrag.name            
         else
           i(id=eintrag.id, data-id=article._id).far.fa-check-square.float-left.checkbox
             h5(id="hdrei")

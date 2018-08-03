@@ -29,7 +29,7 @@ $(document).ready(function() {
       type: 'PUT',
       url:'/articles/edit_check/' + id + '/' + did,
       success: function(response) {
-        window.location.href='/article/' + id;
+        window.location.href='/articles/' + id;
         console.log('Asikopp!!!');
       },
       error: function(err) {

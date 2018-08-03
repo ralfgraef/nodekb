@@ -116,16 +116,29 @@ router.post('/add_new_item/:id', function(req, res) {
 });
 
   
-//Update Submit POST Route
+//Update checkbox PUT Route
 router.put('/edit_check/:id/:did', function(req, res) {
   console.log('id --> ', req.params.id);
   console.log('did --> ', req.params.did);
   let query = {_id: req.params.id};
   Article.findById(query, function(err, article) {
     let watt = article.list_item.find(x => x.id == req.params.did);
-    console.log('Was wurde gefunden: ', watt.checked);
-    //console.log(article.findIndex(x => x.list_item.id == req.params.did));
-    })
+    console.log('watt: ', watt)
+    console.log('Was wurde vorgefunden: ', watt.checked);
+    watt.checked =! watt.checked;
+    console.log('Nach Umwandlung: ', watt.checked);
+    console.log('watt nach Umwandlung: ', article)
+    
+    Article.update(query, article, function(err) {
+      if(err) {
+        console.log(err);
+        return;
+      } else {
+        req.flash('success', 'Eintrag aktualisiert!');
+        res.send('Success');
+      }
+    });
+  })
  
 });
 
