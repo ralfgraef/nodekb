@@ -18,7 +18,7 @@ router.get('/edit/:id', function(req, res) {
 // Add Route
 router.get('/add', function(req, res) {
   res.render('add_article', {
-    title: 'Liste hinzu'
+    title: 'Neue Liste anlegen'
   });
 });
 
@@ -71,7 +71,7 @@ router.post('/add',
     article.list_item = {
       id: new Date().valueOf(),
       name: req.body.list_item,
-      checked: true
+      checked: false
     }
     article.date = result;
     article.save(function(err) {

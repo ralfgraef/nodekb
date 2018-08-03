@@ -2,6 +2,8 @@ extends layout
 
 block content
   h2(id="heins") #{title}
+  a(href='/articles/add')
+    i(id='index_item').fas.fa-plus-circle.float-right
   br
   ul.list-group
     each article, i in articles

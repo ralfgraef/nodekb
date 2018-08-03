@@ -64,3 +64,9 @@ li img, h2 img {
   margin-top: 5px;
   margin-right: 4px;
 }
+#index_item {
+  color: darkslategray;
+  font-size: 40px;
+  margin-top: -45px;
+  margin-right: 16px;
+}
