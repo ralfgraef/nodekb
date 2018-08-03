@@ -2,10 +2,9 @@ extends layout
 
 block content
   h1 #{title}
-  form(method='POST', action='/articles/edit/' + article._id)
+  form(method='POST', action='/articles/edit/' + article._id + '/' + watt.id)
     .form-group
-      each eintrag, i in article.list_item
-        label(id='testLabel')
-        input.form-control(name='list_item', type='text', value = eintrag.name)
+        label Listeneintrag ändern:
+        input.form-control(name='list_item', type='text', value = watt.name)
     br
-    input.btn.btn-outline-primary.custom-btn(type='submit', value='Senden')
+    input.btn.btn-outline-primary.custom-btn(type='submit', value='Ändern)

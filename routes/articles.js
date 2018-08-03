@@ -6,11 +6,12 @@ const { check, validationResult } = require('express-validator/check');
 let Article = require('../models/article');
 
 // Edit Article
-router.get('/edit/:id', function(req, res) {
+router.get('/edit/:id/:aid', function(req, res) {
   Article.findById(req.params.id, function(err, article) {
     res.render('edit_article', {
       title: 'Listeneintrag ändern',
-      article: article
+      article: article,
+      watt: article.list_item.find(x => x.id == req.params.aid)
     });
   });
 });
@@ -31,6 +32,7 @@ router.get('/article_item/:id', function(req, res) {
     });
   });
 });
+
 // Add Submit POST Route
 router.post('/add', 
 [
@@ -40,7 +42,6 @@ router.post('/add',
 ],
 
 (req, res, next) => {
-  //console.log(req.body);
   let article = new Article({
     title:req.body.title,
     author:req.body.author,
@@ -54,8 +55,6 @@ router.post('/add',
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    //console.log(errors.mapped());
-    //console.log(article.list_item.id);
       res.render('add_article',
       { 
         title: 'Add Articles',
@@ -89,17 +88,12 @@ router.post('/add',
 // Add new item POST Route
 router.post('/add_new_item/:id', function(req, res) {
   Article.findById(req.params.id, function(err, article) {
-    console.log('article: ', article);
-    console.log('Hier bin ich mit list_item: ', req.body.list_item);
     let eintrag = {
       id: new Date().valueOf(),
       name: req.body.list_item,
       checked: false
     };
-    console.log('Eintrag: ', eintrag); 
-    console.log('article.list_item: ', article.list_item);
     article.list_item.push(eintrag);
-    console.log('article.list_item nach push: ', article.list_item)
     
     let query = {_id: req.params.id};
 
@@ -118,16 +112,10 @@ router.post('/add_new_item/:id', function(req, res) {
   
 //Update checkbox PUT Route
 router.put('/edit_check/:id/:did', function(req, res) {
-  console.log('id --> ', req.params.id);
-  console.log('did --> ', req.params.did);
   let query = {_id: req.params.id};
   Article.findById(query, function(err, article) {
-    let watt = article.list_item.find(x => x.id == req.params.did);
-    console.log('watt: ', watt)
-    console.log('Was wurde vorgefunden: ', watt.checked);
-    watt.checked =! watt.checked;
-    console.log('Nach Umwandlung: ', watt.checked);
-    console.log('watt nach Umwandlung: ', article)
+    let latt = article.list_item.find(x => x.id == req.params.did);
+    latt.checked =! latt.checked;
     
     Article.update(query, article, function(err) {
       if(err) {
@@ -144,25 +132,21 @@ router.put('/edit_check/:id/:did', function(req, res) {
 
 
 // Update Submit POST Route
-router.post('/edit/:id', function(req, res) {
-  let article = {};
-  // article.title = req.body.title;
-  // article.author = req.body.author;
-  article.list_item = {
-    name: req.body.list_item,
-    checked: false
-  }
-
+router.post('/edit/:id/:aid', function(req, res) {
   let query = {_id: req.params.id};
+  Article.findById(query, function(err, article) {
+    let zatt = article.list_item.find(x => x.id == req.params.aid);
+    zatt.name = req.body.list_item;
 
-  Article.update(query, article, function(err) {
-    if(err) {
-      console.log(err);
-      return;
-    } else {
-      req.flash('success', 'Eintrag aktualisiert!');
-      res.redirect('/articles/' + req.params.id);
-    }
+    Article.update(query, article, function(err) {
+      if(err) {
+        console.log(err);
+        return;
+      } else {
+        req.flash('success', 'Eintrag aktualisiert!');
+        res.redirect('/articles/' + req.params.id);
+      }
+    });
   });
 });
 

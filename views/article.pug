@@ -19,9 +19,9 @@ block content
           i(id=eintrag.id, data-id=article._id).far.fa-check-square.float-left.checkbox
             h5(id="hdrei")
               del= eintrag.name
-        a(href='/articles/edit/' + article._id)
+        a(href='/articles/edit/' + article._id + '/' + eintrag.id)
           i(id="edit_item").far.fa-edit.float-right
-        
+      br  
   
   hr
   a.btn.btn-outline-danger.delete-article(href='#', data-id=article._id) Löschen 
